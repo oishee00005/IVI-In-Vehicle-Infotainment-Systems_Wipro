@@ -1,0 +1,41 @@
+flowchart TB
+U[Driver / Passenger] --> VG[Vehicle Gateway]
+SW[Steering Controls] --> VG
+TS[Touchscreen] --> VG
+MIC[Voice / Microphone] --> VG
+GNSS[GNSS] --> VG
+CAN[Vehicle CAN-FD] --> VG
+PHONE[Smartphone] --> PG[Projection Gateway]
+
+VG --> MEDIA[Media Service]
+VG --> NAV[Navigation & Route Service]
+VG --> VEH[Vehicle Data Abstraction]
+PG --> PROJ[Projection Session Manager]
+
+MEDIA --> AUDIO[Audio Manager]
+NAV --> HMI[HMI / Display Manager]
+PROJ --> HMI
+VEH --> HMI
+SEC[Security & Privacy Manager] --> MEDIA
+SEC --> NAV
+SEC --> PROJ
+
+MEDIA --> FUSION[Context Fusion Engine]
+NAV --> FUSION
+VEH --> FUSION
+PROJ --> POLICY[Driver-Distraction Policy Engine]
+FUSION --> POLICY
+POLICY --> HMI
+FUSION --> ML[Personalization / Recommendation ML]
+ML --> MEDIA
+FUSION --> LOG[Event / Telemetry Logger]
+
+HMI --> CENTER[Center Display]
+HMI --> CLUSTER[Instrument Cluster / HUD]
+AUDIO --> SPK[Speakers]
+PROJ --> PUI[Projection UI]
+LOG --> CLOUD[Cloud Services]
+VG <--> CLOUD
+
+VG -. USB/IP, Ethernet, CAN-FD .- PG
+PHONE -. Wi-Fi / Bluetooth .- PG

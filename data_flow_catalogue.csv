@@ -1,0 +1,6 @@
+ID,Scenario,Path,Key Data
+"DF-01","Media","Source → Media → Audio → Speakers","Metadata, commands, audio"
+"DF-02","Navigation","GNSS/Cloud → Navigation → HMI/Cluster/HUD","Position, route, maneuver, traffic"
+"DF-03","Projection","Phone → Projection Gateway → Session Manager → HMI","Session and app content"
+"DF-04","Context","Vehicle + Route + Media + Projection → Fusion → Policy","Real-time context"
+"DF-05","Cloud","IVI ↔ Cloud","Telemetry, updates, analytics"

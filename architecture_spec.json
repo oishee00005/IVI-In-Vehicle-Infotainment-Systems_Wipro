@@ -1,0 +1,34 @@
+{
+  "project": "DriveFusion IVI",
+  "author": "Oishee Bandyopadhyay",
+  "program": "B.Tech CSE (AIML), 4th Year",
+  "institute": "Institute of Engineering & Management (IEM), Newtown",
+  "required_capabilities": [
+    "Media",
+    "Navigation",
+    "Smartphone Projection"
+  ],
+  "distinctive_capabilities": [
+    "Context Fusion",
+    "Driver-Distraction Policy",
+    "Personalization ML",
+    "Telemetry"
+  ],
+  "interfaces": [
+    "CAN-FD",
+    "USB/IP",
+    "Wi-Fi",
+    "Bluetooth",
+    "Ethernet",
+    "SOME/IP/service APIs",
+    "HTTPS/REST",
+    "GNSS/NMEA"
+  ],
+  "outputs": [
+    "Center Display",
+    "Instrument Cluster/HUD",
+    "Speakers",
+    "Steering Controls",
+    "Projection UI"
+  ]
+}

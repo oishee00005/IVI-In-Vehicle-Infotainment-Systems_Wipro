@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DriveFusion IVI Demo</title><style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f7fb;color:#16243a}header{background:#173b70;color:#fff;padding:28px 5%}main{max-width:1100px;margin:30px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:white;padding:18px;border-radius:14px;box-shadow:0 5px 18px #0001}button{background:#246bce;color:white;border:0;padding:10px 13px;border-radius:8px;margin:3px}.status{padding:12px;border-radius:8px;font-weight:bold}pre{background:#101827;color:#d7e4ff;padding:12px;border-radius:8px}@media(max-width:800px){.grid{grid-template-columns:1fr}}</style></head>
+<body><header><h1>DriveFusion IVI</h1><div>Architecture Interaction Demonstrator</div></header><main><div class="grid">
+<div class="card"><h3>Vehicle Context</h3><input id="sp" type="range" min="0" max="140" value="35"><p>Speed: <b id="sv">35</b> km/h</p><button onclick="setS(0)">Parked</button><button onclick="setS(35)">Urban</button><button onclick="setS(90)">Highway</button></div>
+<div class="card"><h3>Media</h3><button onclick="log('Play')">Play</button><button onclick="log('Pause')">Pause</button><p id="media">Stopped</p></div>
+<div class="card"><h3>Navigation</h3><button onclick="log('Route started')">Start Route</button><button onclick="log('Turn instruction')">Next Turn</button><p id="nav">Idle</p></div>
+<div class="card"><h3>Projection</h3><button onclick="log('Projection connected')">Connect Phone</button><button onclick="log('Projection ended')">Disconnect</button><p id="proj">No session</p></div>
+<div class="card"><h3>Policy Engine</h3><div id="pol" class="status">Evaluating…</div></div>
+<div class="card"><h3>Event Stream</h3><pre id="logbox">System initialized.\n</pre></div>
+</div></main><script>
+const sp=document.getElementById('sp'),sv=document.getElementById('sv'),pol=document.getElementById('pol');
+function evalP(){let s=+sp.value;sv.textContent=s;if(s==0){pol.textContent='PARKED — full interaction';pol.style.background='#e8f5e9'}else if(s<60){pol.textContent='MOVING — concise controls';pol.style.background='#fff8e1'}else{pol.textContent='HIGH SPEED — restrict browsing';pol.style.background='#ffebee'}}
+function setS(x){sp.value=x;evalP();log('Speed '+x+' km/h')}sp.oninput=evalP;evalP();
+function log(x){document.getElementById('logbox').textContent+=new Date().toLocaleTimeString()+'  '+x+'\n';if(x=='Play')media.textContent='Playing';if(x=='Pause')media.textContent='Paused';if(x.includes('Route'))nav.textContent='Route active';if(x.includes('Turn'))nav.textContent='Turn in 250 m';if(x.includes('connected'))proj.textContent='Projection active';if(x.includes('ended'))proj.textContent='No session'}
+</script></body></html>

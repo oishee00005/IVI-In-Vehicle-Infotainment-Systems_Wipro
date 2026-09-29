@@ -1,0 +1,10 @@
+ID,Interface,Domain,Data,Technology,Control
+"IF-01","Vehicle Gateway ↔ CAN-FD","Vehicle signals","Speed, gear, parking state, sensors","CAN-FD","Validate/filter"
+"IF-02","Projection Gateway ↔ Smartphone","Projection","Session, UI, controls","USB/IP, Wi-Fi, Bluetooth","Authentication"
+"IF-03","Gateway ↔ IVI Services","Service data","Normalized vehicle properties","SOME/IP / service API","Least privilege"
+"IF-04","Media ↔ Audio","Playback","Play/pause, source, volume, metadata","Local API","Driver-safe controls"
+"IF-05","Navigation ↔ HMI","Navigation UI","Route, maneuver, map state","Service API","Policy gate"
+"IF-06","Projection ↔ HMI","Projection UI","Session UI and controls","Local service/API","Policy gate"
+"IF-07","Context ↔ Policy","Context","Speed, route, media, projection state","Event/API","Deterministic rules"
+"IF-08","Policy ↔ HMI","Policy decision","Allowed/restricted UI","Local API","Safety boundary"
+"IF-09","IVI ↔ Cloud","Lifecycle","Updates, telemetry, analytics","HTTPS/REST","TLS/device identity"
